@@ -1,0 +1,70 @@
+[tool.poetry]
+name = "exprule"
+version = "0.1.0"
+description = "Pure Python Experience Rule Library for AI Agents"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/yourusername/exprule"
+repository = "https://github.com/yourusername/exprule"
+keywords = ["ai", "agents", "experience", "rules", "knowledge-base"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.0.0"
+networkx = "^3.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-cov = "^4.0.0"
+black = "^24.0.0"
+isort = "^5.13.0"
+mypy = "^1.8.0"
+sphinx = "^7.0.0"
+sphinx-rtd-theme = "^2.0.0"
+
+[tool.poetry.group.optional.dependencies]
+neo4j = "^5.0"
+redis = "^5.0"
+pyyaml = "^6.0"
+
+[tool.poetry.extras]
+neo4j = ["neo4j"]
+redis = ["redis"]
+yaml = ["pyyaml"]
+all = ["neo4j", "redis", "pyyaml"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "--strict-markers"
+
+[tool.black]
+line-length = 100
+target-version = ['py310', 'py311', 'py312', 'py313']
+
+[tool.isort]
+profile = "black"
+line-length = 100
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
